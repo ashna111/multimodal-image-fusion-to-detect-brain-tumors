@@ -1,0 +1,33 @@
+Modality := CT
+Manufacturer:= Siemens
+Insititution ID := Vanderbilt University
+Comments := Confidential. For use only in NIH R01MS/CA33926-01, JM Fitzpatrick, PI.
+
+Patient ID := 008
+Comments := Patient ID is fictitious.
+
+Contrast/Bolus agent := Optiray
+Slice thickness := 4.000000
+KVP := 200
+Gantry tilt := 0.000000
+Exposure time := 2
+Exposure rate := 250
+
+Study := 1
+Series := 1
+Acquisition := 1
+Patient orientation := L : P : H
+
+Image dimensions := 3
+Rows := 512
+Columns := 512
+Slices := 29
+Pixel size := 0.653595 : 0.653595
+Compression code := Unix compress command
+Bits allocated := 16
+Bits stored := 16
+High bit := 15
+Pixel representation := 1
+Smallest pixel value := -32,768
+Largest pixel value := +32,767
+
