@@ -1,7 +1,7 @@
 # !pip install opencv-python
 import cv2
 # Define Capture Function
-# points=[]
+points=[]
 # def capture_click(event, x, y, flags, param):
 #         if event == cv2.EVENT_LBUTTONDOWN: #left button of the mouse
 #             print(x,y)
@@ -32,6 +32,7 @@ import cv2
 def click_event(event, x, y, flags, param):
     if event == cv2.EVENT_LBUTTONDOWN:
         print(x,', ' ,y)
+        points.append([x,y])
         # font = cv2.FONT_HERSHEY_SIMPLEX
         # strXY = str(x) + ', '+ str(y)
         # cv2.putText(img, strXY, (x, y), font, .5, (255, 255, 0), 2)
@@ -53,3 +54,4 @@ cv2.setMouseCallback('image', click_event)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+print(points)
