@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BE Project</title>
+</head>
+
+<body>
+    <h2>Upload Files</h2>
+    <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+        <strong>Files:</strong><br>
+        <input id="file-picker" type="file" name="file" accept="image/*">
+        <input type="submit" value="Upload!">
+    </form>
+</body>
+
+</html>
