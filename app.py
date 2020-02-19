@@ -15,11 +15,15 @@ def upload():
     if not os.path.isdir(target):
         os.mkdir(target)
 
-    for file in request.files.getlist("file"):
-        filename = file.filename
-        destination = "/".join([target, filename])
-        file.save(destination)
+    mri_file=request.files['mri']
+    ct_file=request.files['ct']
 
+    destination1 = "/".join([target, "mri.jpg"])
+    mri_file.save(destination1)
+
+    destination2 = "/".join([target, "ct.jpg"])
+    ct_file.save(destination2)
+    
     return render_template("complete.html")
 
 if __name__ == "__main__":

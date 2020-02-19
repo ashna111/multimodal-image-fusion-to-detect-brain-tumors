@@ -9,7 +9,12 @@
     <h2>Upload Files</h2>
     <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
         <strong>Files:</strong><br>
-        <input id="file-picker" type="file" name="file" accept="image/*">
+        <label for="mri">Select MRI Image</label>
+        <input type="file" name="mri" id="mri" accept="image/*">
+
+        <label for="ct">Select CT Image</label>
+        <input type="file" name="ct" id="ct" accept="image/*">
+
         <input type="submit" value="Upload!">
     </form>
 </body>
