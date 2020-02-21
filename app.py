@@ -11,7 +11,7 @@ def index():
 
 @app.route("/upload", methods=['POST'])
 def upload():
-    target = os.path.join(APP_ROOT, 'uploads/')
+    target = os.path.join(APP_ROOT, 'static/')
     if not os.path.isdir(target):
         os.mkdir(target)
 
@@ -24,7 +24,7 @@ def upload():
     destination2 = "/".join([target, "ct.jpg"])
     ct_file.save(destination2)
     
-    return render_template("complete.html")
+    return render_template("registration.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

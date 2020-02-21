@@ -1,0 +1,9 @@
+body{
+    margin: 20px 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+.heading div{
+    display: inline-block;
+    font-family: 'Courier New', Courier, monospace;
+}

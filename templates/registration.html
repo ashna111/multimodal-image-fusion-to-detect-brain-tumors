@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/registration.css') }}">
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <div class="heading">
+        <div style="margin-left:120px; margin-right: 250px;">MRI Image</div>
+        <div>CT Image</div>
+    </div>
+    <img src="{{ url_for('static',filename='mri.jpg') }}" alt="MRI" height="350" width="350" class="mri">
+    <img src="{{ url_for('static',filename='ct.jpg') }}" alt="CT" height="350" width="350" class="ct">
+</div>
+{% endblock %}
