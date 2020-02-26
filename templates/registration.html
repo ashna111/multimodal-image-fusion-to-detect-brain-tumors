@@ -14,11 +14,11 @@
         <div style="margin-left:120px; margin-right: 250px;">MRI Image</div>
         <div>CT Image</div>
     </div>
-    <canvas id="myCanvas" height="350" width="350"></canvas>
-    <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" height="350" width="350" class="mri" style="display:none;">
+    <!-- <canvas id="myCanvas" height="350" width="350"></canvas> -->
+    <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" height="350" width="350" class="mri">
     <script type="text/javascript">
         
-        var myImg = document.getElementById("myCanvas");
+        var myImg = document.getElementById("mri");
         console.log("Hi");
         console.log(myImg);
         myImg.onclick = GetCoordinates;
