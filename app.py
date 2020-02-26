@@ -24,8 +24,9 @@ def upload():
     destination2 = "/".join([target, "ct.jpg"])
     ct_file.save(destination2)
     
+    points = request.form["points"]
 
-    return render_template("registration.html")
+    return render_template("registration.html", points=points)
     
 @app.after_request
 def add_header(response):

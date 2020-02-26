@@ -16,18 +16,23 @@
     </div>
     <!-- <canvas id="myCanvas" height="350" width="350"></canvas> -->
     <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" height="350" width="350" class="mri">
+    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" height="350" width="350" class="ct">
+
+    <p>MRI X:<span style="margin-right:300px;" id="mriX"></span>CT X:<span id="ctX"></span></p>
+    <p>MRI Y:<span style="margin-right:300px;" id="mriY"></span>CT Y:<span id="ctY"></span></p>
+
     <script type="text/javascript">
         
-        var myImg = document.getElementById("mri");
+        var myImgMri = document.getElementById("mri");
+        var points = {{points}};
         console.log("Hi");
-        console.log(myImg);
-        myImg.onclick = GetCoordinates;
+        console.log(myImgMri);
+        myImgMri.onclick = GetCoordinatesMri;
+
+        var myImgCt = document.getElementById("ct");
+        console.log(myImgCt);
+        myImgCt.onclick = GetCoordinatesCt;
         
     </script>
-        
-    <p>X:<span id="x"></span></p>
-    <p>Y:<span id="y"></span></p>
-
-    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" height="350" width="350" class="ct">
 </div>
 {% endblock %}
