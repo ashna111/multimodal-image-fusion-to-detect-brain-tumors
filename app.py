@@ -14,17 +14,12 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 def convertToIntList(arr):
     result=[]
-    # result=[int(q) for q in arr.strip('][').split(',')]    #converted a string like "[0,1,0]" to list of integers [0,1,0] 
-    for q in arr.strip('][').split('],['):
-        if q=='null':
-            result.append(-1)
-        else:
-            result.append(int(q,10))
-    # ques[0]=ques[0][1:]
-    # ques[len(ques)-1]=ques[len(ques)-1][0:-1]
+    for q in arr.strip(']][[').split('],['):
+        x=[]
+        for i in q.split(','):
+            x.append(int(i,10))
+        result.append(x)
     return result
-
-
 
 @app.route("/")
 def index():
@@ -52,14 +47,8 @@ def upload():
 @app.route("/register",methods=['POST'])
 def register():
     global mriCoord, ctCoord
-    print("Register")
-    mriCoord=request.form['mriCoord']
-    ctCoord=request.form['ctCoord']
-    print(mriCoord)
-    print(ctCoord)
-    print(type(mriCoord))
-    print(type(ctCoord))
-
+    mriCoord=convertToIntList(request.form['mriCoord'])
+    ctCoord=convertToIntList(request.form['ctCoord'])
     return "something"
 
 @app.after_request
