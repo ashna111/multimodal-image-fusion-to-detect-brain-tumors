@@ -190,7 +190,7 @@ function sendParameters() {
         mriCoord: JSON.stringify(mriCoord),
         ctCoord: JSON.stringify(ctCoord),
     }, function (res) {
-        location.href = '/';
+        location.href = '/registerimage';
     });
 }
 
