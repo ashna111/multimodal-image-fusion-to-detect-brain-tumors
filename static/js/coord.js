@@ -1,20 +1,16 @@
 var mriCoord = [];
 var ctCoord = [];
-function FindPosition(oElement)
-{
+function FindPosition(oElement) {
     console.log("In FindPos");
-    if(typeof( oElement.offsetParent ) != "undefined")
-    {
-    for(var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent)
-    {
-        posX += oElement.offsetLeft;
-        posY += oElement.offsetTop;
+    if (typeof (oElement.offsetParent) != "undefined") {
+        for (var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent) {
+            posX += oElement.offsetLeft;
+            posY += oElement.offsetTop;
+        }
+        return [posX, posY];
     }
-        return [ posX, posY ];
-    }
-    else
-    {
-        return [ oElement.x, oElement.y ];
+    else {
+        return [oElement.x, oElement.y];
     }
 }
 
@@ -42,38 +38,36 @@ function FindPosition(oElement)
 //     // imgData.data[3]=255;
 // }
 
-function GetCoordinatesMri(e){
-    if(mriCoord.length<points){
+function GetCoordinatesMri(e) {
+    if (mriCoord.length < points) {
         console.log("Making Canvas")
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
         var img = document.getElementById('mri');
         canvas.width = img.width;
         canvas.height = img.height;
-        context.drawImage(img, 0, 0 );
+        context.drawImage(img, 0, 0);
 
         console.log("In GETCOORD MRI");
-        console.log(myImgMri)  
+        console.log(myImgMri)
         var PosX = 0;
         var PosY = 0;
         var ImgPos;
         ImgPos = FindPosition(myImgMri);
         if (!e) var e = window.event;
-        if (e.pageX || e.pageY)
-        {
-        PosX = e.pageX;
-        PosY = e.pageY;
+        if (e.pageX || e.pageY) {
+            PosX = e.pageX;
+            PosY = e.pageY;
         }
-        else if (e.clientX || e.clientY)
-        {
+        else if (e.clientX || e.clientY) {
             PosX = e.clientX + document.body.scrollLeft
-            + document.documentElement.scrollLeft;
+                + document.documentElement.scrollLeft;
             PosY = e.clientY + document.body.scrollTop
-            + document.documentElement.scrollTop;
+                + document.documentElement.scrollTop;
         }
         PosX = PosX - ImgPos[0];
         PosY = PosY - ImgPos[1];
-        mriCoord.push([PosX,PosY]);
+        mriCoord.push([PosX, PosY]);
         document.getElementById("mriX").innerHTML = PosX;
         document.getElementById("mriY").innerHTML = PosY;
 
@@ -86,7 +80,7 @@ function GetCoordinatesMri(e){
         //         data[index+0] = data[index+2];
         //         data[index+1] = 255 - data[index+1];
         //         data[index+2] = 255 - data[index-1];
-        
+
         //     }
         // }
 
@@ -112,44 +106,42 @@ function GetCoordinatesMri(e){
         // ChangeColour(PosX, PosY, myImg);
     } else {
         alert("Can't exceed number of points");
-    }  
+    }
 }
 
-function GetCoordinatesCt(e){
+function GetCoordinatesCt(e) {
 
-    if(ctCoord.length<points){
+    if (ctCoord.length < points) {
         console.log("Making Canvas")
         var canvas = document.createElement('canvas');
         var context = canvas.getContext('2d');
         var img = document.getElementById('ct');
         canvas.width = img.width;
         canvas.height = img.height;
-        context.drawImage(img, 0, 0 );
+        context.drawImage(img, 0, 0);
 
         console.log("In GETCOORD CT");
-        console.log(myImgCt)  
+        console.log(myImgCt)
         var PosX = 0;
         var PosY = 0;
         var ImgPos;
         ImgPos = FindPosition(myImgCt);
         if (!e) var e = window.event;
-        if (e.pageX || e.pageY)
-        {
-        PosX = e.pageX;
-        PosY = e.pageY;
+        if (e.pageX || e.pageY) {
+            PosX = e.pageX;
+            PosY = e.pageY;
         }
-        else if (e.clientX || e.clientY)
-        {
+        else if (e.clientX || e.clientY) {
             PosX = e.clientX + document.body.scrollLeft
-            + document.documentElement.scrollLeft;
+                + document.documentElement.scrollLeft;
             PosY = e.clientY + document.body.scrollTop
-            + document.documentElement.scrollTop;
+                + document.documentElement.scrollTop;
         }
         PosX = PosX - ImgPos[0];
         PosY = PosY - ImgPos[1];
 
 
-        ctCoord.push([PosX,PosY]);
+        ctCoord.push([PosX, PosY]);
         document.getElementById("ctX").innerHTML = PosX;
         document.getElementById("ctY").innerHTML = PosY;
 
@@ -162,7 +154,7 @@ function GetCoordinatesCt(e){
         //         data[index+0] = data[index+2];
         //         data[index+1] = 255 - data[index+1];
         //         data[index+2] = 255 - data[index-1];
-        
+
         //     }
         // }
 
@@ -188,7 +180,18 @@ function GetCoordinatesCt(e){
         // ChangeColour(PosX, PosY, myImg);
     } else {
         alert("Can't exceed number of points");
-    }  
+    }
+}
+
+function sendParameters() {
+    console.log("put method")
+
+    $.post('/register', {
+        mriCoord: JSON.stringify(mriCoord),
+        ctCoord: JSON.stringify(ctCoord),
+    }, function (res) {
+        location.href = '/';
+    });
 }
 
 console.log(mriCoord);

@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block script %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/coord.js') }}"></script>
 {% endblock %}
 
@@ -21,10 +23,14 @@
     <p>MRI X:<span style="margin-right:300px;" id="mriX"></span>CT X:<span id="ctX"></span></p>
     <p>MRI Y:<span style="margin-right:300px;" id="mriY"></span>CT Y:<span id="ctY"></span></p>
 
+    <!-- <form onsubmit="sendParameters()"> -->
+    <button onclick="sendParameters()">Submit Data</button>
+    <!-- </form> -->
+
     <script type="text/javascript">
-        
+
         var myImgMri = document.getElementById("mri");
-        var points = {{points}};
+        var points = {{ points }};
         console.log("Hi");
         console.log(myImgMri);
         myImgMri.onclick = GetCoordinatesMri;
@@ -32,7 +38,7 @@
         var myImgCt = document.getElementById("ct");
         console.log(myImgCt);
         myImgCt.onclick = GetCoordinatesCt;
-        
+
     </script>
 </div>
 {% endblock %}
