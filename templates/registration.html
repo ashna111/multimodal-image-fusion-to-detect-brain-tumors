@@ -17,8 +17,8 @@
         <div>CT Image</div>
     </div>
     <!-- <canvas id="myCanvas" height="350" width="350"></canvas> -->
-    <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" height="350" width="350" class="mri">
-    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" height="350" width="350" class="ct">
+    <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" class="mri">
+    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" class="ct">
 
     <p>MRI X:<span style="margin-right:300px;" id="mriX"></span>CT X:<span id="ctX"></span></p>
     <p>MRI Y:<span style="margin-right:300px;" id="mriY"></span>CT Y:<span id="ctY"></span></p>

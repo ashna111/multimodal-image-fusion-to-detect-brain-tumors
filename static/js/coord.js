@@ -40,13 +40,13 @@ function FindPosition(oElement) {
 
 function GetCoordinatesMri(e) {
     if (mriCoord.length < points) {
-        console.log("Making Canvas")
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        var img = document.getElementById('mri');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img, 0, 0);
+        // console.log("Making Canvas")
+        // var canvas = document.createElement('canvas');
+        // var context = canvas.getContext('2d');
+        // var img = document.getElementById('mri');
+        // canvas.width = img.width;
+        // canvas.height = img.height;
+        // context.drawImage(img, 0, 0);
 
         console.log("In GETCOORD MRI");
         console.log(myImgMri)
@@ -112,13 +112,13 @@ function GetCoordinatesMri(e) {
 function GetCoordinatesCt(e) {
 
     if (ctCoord.length < points) {
-        console.log("Making Canvas")
-        var canvas = document.createElement('canvas');
-        var context = canvas.getContext('2d');
-        var img = document.getElementById('ct');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        context.drawImage(img, 0, 0);
+        // console.log("Making Canvas")
+        // var canvas = document.createElement('canvas');
+        // var context = canvas.getContext('2d');
+        // var img = document.getElementById('ct');
+        // canvas.width = img.width;
+        // canvas.height = img.height;
+        // context.drawImage(img, 0, 0);
 
         console.log("In GETCOORD CT");
         console.log(myImgCt)
