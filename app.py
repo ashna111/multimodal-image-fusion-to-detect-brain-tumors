@@ -76,6 +76,8 @@ def procrustes(X, Y, scaling=True, reflection='best'):
 
     ssX = (X0**2.).sum()
     ssY = (Y0**2.).sum()
+    print(ssX)
+    print(ssY)
 
     # centred Frobenius norm
     normX = np.sqrt(ssX)
@@ -168,8 +170,8 @@ def register():
     # Registration notebook code
     ct = cv2.imread('static/ct.jpg', 0)
     mri = cv2.imread('static/mri.jpg', 0)
-    X_pts = np.asarray(mriCoord)
-    Y_pts = np.asarray(ctCoord)
+    X_pts = np.asarray(ctCoord)
+    Y_pts = np.asarray(mriCoord)
     print(X_pts)
     print(Y_pts)
 
