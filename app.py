@@ -184,7 +184,9 @@ def register():
     t = np.eye(3)
     t[0:2,2] = Tform['translation']
     M = np.dot(np.dot(R,S),t.T).T
-    tr_Y_img = cv2.warpAffine(mri,M[0:2,:],(500,500))
+    h=ct.shape[0]
+    w=ct.shape[1]
+    tr_Y_img = cv2.warpAffine(mri,M[0:2,:],(h,w))
     cv2.imwrite("static/mri_registered.jpg", tr_Y_img)
 
     # aY_pts = np.hstack((Y_pts,np.array(([[1,1,1,1,1]])).T))
