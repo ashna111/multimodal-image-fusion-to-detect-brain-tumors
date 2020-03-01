@@ -76,8 +76,6 @@ def procrustes(X, Y, scaling=True, reflection='best'):
 
     ssX = (X0**2.).sum()
     ssY = (Y0**2.).sum()
-    print(ssX)
-    print(ssY)
 
     # centred Frobenius norm
     normX = np.sqrt(ssX)
