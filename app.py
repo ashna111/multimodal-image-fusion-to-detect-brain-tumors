@@ -170,8 +170,6 @@ def register():
     mri = cv2.imread('static/mri.jpg', 0)
     X_pts = np.asarray(ctCoord)
     Y_pts = np.asarray(mriCoord)
-    print(X_pts)
-    print(Y_pts)
 
     d,Z_pts,Tform = procrustes(X_pts,Y_pts)
     R = np.eye(3)
@@ -186,19 +184,6 @@ def register():
     w=ct.shape[1]
     tr_Y_img = cv2.warpAffine(mri,M[0:2,:],(h,w))
     cv2.imwrite("static/mri_registered.jpg", tr_Y_img)
-
-    # aY_pts = np.hstack((Y_pts,np.array(([[1,1,1,1,1]])).T))
-    # tr_Y_pts = np.dot(M,aY_pts.T).T 
-
-    # plt.figure() 
-    # plt.subplot(1,3,1)
-    # plt.imshow(ct,cmap=cm.gray)
-    # plt.plot(X_pts[:,0],X_pts[:,1],'bo',markersize=5)
-    # plt.subplot(1,3,3)
-    # plt.imshow(tr_Y_img,cmap=cm.gray)
-    # plt.plot(tr_Y_pts[:,0],tr_Y_pts[:,1],'gx',markersize=5)
-    # plt.show()
-
 
     return "something"
 

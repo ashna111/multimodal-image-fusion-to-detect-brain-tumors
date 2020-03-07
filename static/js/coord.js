@@ -1,7 +1,6 @@
 var mriCoord = [];
 var ctCoord = [];
 function FindPosition(oElement) {
-    console.log("In FindPos");
     if (typeof (oElement.offsetParent) != "undefined") {
         for (var posX = 0, posY = 0; oElement; oElement = oElement.offsetParent) {
             posX += oElement.offsetLeft;
@@ -48,7 +47,6 @@ function GetCoordinatesMri(e) {
         // canvas.height = img.height;
         // context.drawImage(img, 0, 0);
 
-        console.log("In GETCOORD MRI");
         console.log(myImgMri)
         var PosX = 0;
         var PosY = 0;
@@ -120,7 +118,6 @@ function GetCoordinatesCt(e) {
         // canvas.height = img.height;
         // context.drawImage(img, 0, 0);
 
-        console.log("In GETCOORD CT");
         console.log(myImgCt)
         var PosX = 0;
         var PosY = 0;
@@ -193,6 +190,3 @@ function sendParameters() {
         location.href = '/registerimage';
     });
 }
-
-console.log(mriCoord);
-console.log(ctCoord);
