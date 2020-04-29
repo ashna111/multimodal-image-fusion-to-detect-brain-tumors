@@ -6,8 +6,12 @@
         <span style="margin-left:120px; margin-right: 350px;">Registered MRI Image</span>
         <span>Registered CT Image</span>
     </div>
-    <!-- <canvas id="myCanvas" height="350" width="350"></canvas> -->
+
     <img src="{{ url_for('static',filename='mri_registered.jpg') }}" id="mri" alt="MRI" class="mri">
     <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" class="ct">
+
+    <form action="{{ url_for('fusion') }}" method="GET">
+        <input type="submit" value="View The Fused Image">
+    </form>
 </div>
 {% endblock %}

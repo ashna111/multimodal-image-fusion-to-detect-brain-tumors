@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block body %}
+
+<center>
+    <h2>The Fused Image</h2>
+    <img src="{{ url_for('static',filename='fusion.jpg') }}" id="fusion" alt="Fused Image" class="fusion">
+</center>
+
+
+
+{% endblock %}
