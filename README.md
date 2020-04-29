@@ -27,3 +27,32 @@ Select the appropriate CT and MRI Images. The registered MRI Image gets saved in
 ***
 
 ### Image Fusion
+
+**Architecture:**
+<img src='architecture/Image Fusion Process.png' />
+
+#### Transfer Learning
+Transfer learning is an optimization that allows rapid progress or improved performance when modeling the second task. We aim to use the **VGG-19 CNN** architecture with its pre-trained parameters which would help us to achieve our target. Visual Geometry Group (VGG-19) is a convolutional neural network that is trained on more than a million images from the ImageNet database. The network is 19 layers deep and can classify images into 1000 object categories.
+
+We convert our images to **YCbCr color format** because it preserves detailed information of luminance component.
+
+#### Discrete Wavelet Transform
+Wavelet transform provides high frequency resolution at low frequencies and high time resolution at high frequencies. A discrete wavelet transform (DWT) is a wavelet transform for which the wavelets are discretely sampled. It captures both frequency and location information (location in time). 
+
+#### Procedure
+1. Apply wavelet decomposition on CT image to generate approximate coefficient LL1 and three detail coefficients: LH1(horizontal), LV1(vertical), LD1(diagonal)
+2. Apply wavelet decomposition on MR image to generate approximate coefficient LL2 and three detail coefficients: LH2(horizontal), LV2(vertical), LD2(diagonal)
+3. Apply fusion based on VGG-19 network on four pairs: (LL1 and LL2), (LH1 and LH2), (LV1 and LV2) and (LD1 and LD2), to generate LL band, LH band, LV band and LD band.
+4. Apply inverse wavelet transform on the four bands generated in step 3 to obtain fused image.
+
+#### Code
+1. **Python Notebook** -
+Navigate to `python scripts/Transfer_Learning.ipynb` and provide paths to registered set of MRI and CT Images.
+2. **GUI** -
+Setup Flask and install dependencies and run:
+`python app.py`
+In continuation to the above GUI approach the fused image gets saved in `static/fusion.jpg`
+
+***
+
+### Image Segmentation
