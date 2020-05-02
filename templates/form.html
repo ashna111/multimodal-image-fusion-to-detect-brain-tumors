@@ -1,18 +1,77 @@
 <!DOCTYPE html>
-{% extends 'base.html' %}
-{% block body %}
-<h2>Upload Files</h2>
-<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
-    <strong>Files:</strong><br>
-    <label for="mri">Select MRI Image</label>
-    <input type="file" name="mri" id="mri" accept="image/*">
+<html lang="en">
 
-    <label for="ct">Select CT Image</label>
-    <input type="file" name="ct" id="ct" accept="image/*">
+<head>
+    <meta charset="UTF-8">
+    <title>BE Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/form.css">
 
-    <label for="points">Enter Number of Points for Registration (Min 5, Max 10)</label>
-    <input type="number" name="points" min="5" max="10">
+</head>
 
-    <input type="submit" value="Upload!">
-</form>
-{% endblock %}
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 content image-class">
+                <div class="landing-content">
+                    <h2>Multi Modal Medical Image Fusion To Detect Brain Tumors</h2>
+                    <p>Images are the largest source of data in healthcare and, at the same time, one of the most
+                        difficult sources to analyze.
+                        Clinicians today must rely largely on medical image analysis performed by overworked
+                        radiologists and sometimes analyze
+                        scans themselves. Multimodal medical imaging can provide us with separate yet complementary
+                        structure and function information of a
+                        patient study and hence has transformed the way we study living bodies. Diagnostic tools include
+                        Computed tomography (CT) and Magnetic resonance imaging (MRI) and thus these are the two
+                        modalities that we will consider for Image Fusion Process.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 content">
+                <div style="width:70%;margin:75px auto">
+                    <h3>Landmark-Based Registration</h3>
+                    <p>
+                        Image landmark registration is a simple process where a number of points (landmarks) are defined
+                        on the same locations
+                        in two volumes. The landmarks are then matched by an algorithm, and the volumes are thus
+                        registered. The CT scan image
+                        is taken as the reference (fixed) image and the MRI scan image is aligned as per the points
+                        selected by the user.
+                    </p>
+                    <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="mri">Select MRI Image :</label>
+                            <input type="file" name="mri" id="mri" accept="image/*" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ct">Select CT Image :</label>
+                            <input type="file" name="ct" id="ct" accept="image/*" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="points">Enter Number of Points for Registration (Min 5, Max 10) :</label>
+                            <input type="number" name="points" min="5" max="10" class="form-control">
+                        </div>
+
+                        <input type="submit" value="Upload Files" class="btn btn-primary btn-block">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

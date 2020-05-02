@@ -1,0 +1,23 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: serif;
+}
+
+.content{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h2{
+    font-size: 22px;
+    text-align: center;
+}
+
+.jumbotron{
+    margin-top: 40px;
+}
+
+.jumbotron .display-4{
+    font-size: 28px;
+}
