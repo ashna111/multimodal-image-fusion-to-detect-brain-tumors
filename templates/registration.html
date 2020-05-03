@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block link %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="{{ url_for('static',filename='css/registration.css') }}">
 {% endblock %}
 
@@ -8,37 +10,66 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/coord.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <div class="heading">
-        <div style="margin-left:120px; margin-right: 250px;">MRI Image</div>
-        <div>CT Image</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <center>
+                <h2 style="margin-top:40px;margin-bottom:20px">Select Co-ordinates for Registration Process</h2>
+            </center>
+        </div>
     </div>
-    <!-- <canvas id="myCanvas" height="350" width="350"></canvas> -->
-    <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" class="mri">
-    <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" class="ct">
 
-    <p>MRI X:<span style="margin-right:300px;" id="mriX"></span>CT X:<span id="ctX"></span></p>
-    <p>MRI Y:<span style="margin-right:300px;" id="mriY"></span>CT Y:<span id="ctY"></span></p>
+    <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div style="display: flex;flex-direction: column;align-items:center; justify-content: space-between;min-height:662px;">
+                <h2>MRI Image</h2>
+                <img src="{{ url_for('static',filename='mri.jpg') }}" id="mri" alt="MRI" class="mri" style="border:2px solid #87857f;padding:15px; border-radius:10px;">
+                <div>
+                    <p>MRI X:<span id="mriX"></span></p>
+                    <p>MRI Y:<span id="mriY"></span></p>
+                </div>
+            </div>
+        </div>
 
-    <!-- <form onsubmit="sendParameters()"> -->
-    <button onclick="sendParameters()">Submit Data</button>
-    <!-- </form> -->
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div style="display: flex;flex-direction: column;align-items: center;justify-content:space-between;min-height: 662px;">
+                <h2>CT Image</h2>
+                <img src="{{ url_for('static',filename='ct.jpg') }}" id="ct" alt="CT" class="ct" style="border:2px solid #87857f;padding:15px; border-radius:10px;">
+                <div>
+                    <p>CT X:<span id="ctX"></span></p>
+                    <p>CT Y:<span id="ctY"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <center>
+                <button onclick="sendParameters()" class="btn btn-primary" style="margin-bottom: 40px;">Submit Data</button>
+            </center>
+        </div>
+    </div>
+</div>
 
     <script type="text/javascript">
 
         var myImgMri = document.getElementById("mri");
         var points = {{ points }};
-        console.log("Hi");
-        console.log(myImgMri);
         myImgMri.onclick = GetCoordinatesMri;
 
         var myImgCt = document.getElementById("ct");
-        console.log(myImgCt);
         myImgCt.onclick = GetCoordinatesCt;
 
     </script>
-</div>
 {% endblock %}
