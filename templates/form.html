@@ -42,17 +42,17 @@
                     <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="mri">Select MRI Image :</label>
-                            <input type="file" name="mri" id="mri" accept="image/*" class="form-control">
+                            <input type="file" name="mri" id="mri" accept="image/*" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="ct">Select CT Image :</label>
-                            <input type="file" name="ct" id="ct" accept="image/*" class="form-control">
+                            <input type="file" name="ct" id="ct" accept="image/*" class="form-control" required>
                         </div>
 
                         <div class="form-group">
                             <label for="points">Enter Number of Points for Registration (Min 5, Max 10) :</label>
-                            <input type="number" name="points" min="5" max="10" class="form-control">
+                            <input type="number" name="points" min="5" max="10" class="form-control" required>
                         </div>
 
                         <input type="submit" value="Upload Files" class="btn btn-primary btn-block">
