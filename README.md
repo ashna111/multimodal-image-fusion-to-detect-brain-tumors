@@ -1,5 +1,4 @@
 ## Multimodal Medical Image Fusion To Detect Brain Tumors 
-[In progress]
 
 Images are the largest source of data in healthcare and, at the same time, one of the most difficult sources to analyze. Clinicians today must rely largely on medical image analysis performed by overworked radiologists and sometimes analyze scans themselves. Computer vision software based on the latest deep learning algorithms is already enabling the automated analysis to provide accurate results that are delivered immeasurably faster than the manual process can achieve. **Multimodal medical imaging** can provide us with separate yet complementary structure and function information of a patient study and hence has transformed the way we study living bodies. The motivation for multimodal imaging is to obtain a superior exquisite image that will provide accurate and reliable statistics than any single image while retaining the best functions for the snapshots software program for medically testing, diagnosing and curing diseases.
 
@@ -56,3 +55,14 @@ In continuation to the above GUI approach the fused image gets saved in `static/
 ***
 
 ### Image Segmentation
+
+#### Watershed Algorithm
+Watershed segmentation is a region-based technique that utilizes image morphology. It requires selection of at least one marker (“seed” point) interior to each object of the image, including the background as a separate object. The markers are chosen by an operator or are provided by an automatic procedure that takes into account the application-specific knowledge of the objects. Once the objects are marked, they can be grown using a morphological watershed transformation
+
+#### Code
+1. **Python Notebook** -
+Navigate to `python scripts/Image Segmentation.ipynb` and provide paths to registered set of MRI and CT Images.
+2. **GUI** -
+Setup Flask and install dependencies and run:
+`python app.py`
+In continuation to the above GUI approach the fused image gets saved in `static/segmented.jpg`
