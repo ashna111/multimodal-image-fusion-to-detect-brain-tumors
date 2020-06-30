@@ -66,3 +66,9 @@ Navigate to `python scripts/Image Segmentation.ipynb` and provide paths to regis
 Setup Flask and install dependencies and run:
 `python app.py`
 In continuation to the above GUI approach the fused image gets saved in `static/segmented.jpg`
+
+***
+
+### Desktop Application
+All the above functionalities have also been implemented on Desktop Application. The link to the Github Repository is: 
+[Github Link for Desktop Application](https://github.com/beccaboo-31/Multimodal-Image-Fusion-Desktop-App/)
