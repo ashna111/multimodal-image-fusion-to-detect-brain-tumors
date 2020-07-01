@@ -69,6 +69,13 @@ In continuation to the above GUI approach the fused image gets saved in `static/
 
 ***
 
-### Desktop Application
-All the above functionalities have also been implemented on a Desktop Application using Tkinter.
-[Github Link for Desktop Application](https://github.com/beccaboo-31/Multimodal-Image-Fusion-Desktop-App/)
+#### Desktop Application
+All the above functionalities have also been implemented on a [Desktop Application](https://github.com/beccaboo-31/Multimodal-Image-Fusion-Desktop-App/) using Tkinter.
+
+***
+#### Contributors
+* [Aayush Parekh](https://github.com/aparekh7)
+* [Neha Patil](https://github.com/Nehaa03)
+* [Rebecca Biju](https://github.com/beccaboo-31)
+* [Ashna Shah](https://github.com/ashna111)
+
